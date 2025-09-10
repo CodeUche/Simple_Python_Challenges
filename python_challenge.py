@@ -1,6 +1,7 @@
 import math
 from math import *
 
+"""
 # --------------------------Challenge 1------------------------------------------------
 
 # Create a multiplication table for any number and ensure the next one starts on a new line.
@@ -156,5 +157,79 @@ pace_seconds = (average_pace - pace_minutes) * 60
 
 
 # Print result in minutes, seconds and miles per hour
-print(f"Average pace is: {pace_minutes} minutes and {int(pace_seconds)} seconds per mile")
+print(
+    f"Average pace is: {pace_minutes} minutes and {int(pace_seconds)} seconds per mile"
+)
 print(f"Average speed is: {average_speed:.2f} mph")
+
+
+# --------------------------------QUESTION 9------------------------------------------
+# The volume of a sphere with radius r is 4/3 πr^3.
+# What is the volume of a sphere with radius 5?
+# ------------------------------------------------------------------------------------
+
+radius = 5
+sphere = (4 / 3) * pi * (radius**3)
+
+print(f"The Volume of the sphere is: {sphere}")
+
+# Alternatively
+sphere_alt = (4 / 3) * math.pi * (radius**3)
+print(f"The Volume of the sphere is: {sphere_alt}")
+
+
+# --------------------------------QUESTION 10------------------------------------------
+# Suppose the cover price of a book is $24.95, but bookstores get a 40% discount.
+# Shipping costs $3 for the first copy and 75 cents for each additional copy.
+# What is the total wholesale cost for 60 copies?
+# -------------------------------------------------------------------------------------
+
+book_price = 24.95
+bookstore_discount = 0.40
+shipping_first = 3
+shipping_additional = 0.75
+total_books_ordered = 60
+
+cost_per_book_after_discount = book_price * (1 - bookstore_discount)
+total_shipping_cost = shipping_first + shipping_additional * (total_books_ordered - 1)
+total_book_cost = total_books_ordered * cost_per_book_after_discount
+total_wholesale_cost = total_book_cost + total_shipping_cost
+
+print(f"Cost per book after discount: {cost_per_book_after_discount:.2f}")
+print(f"Total shipping cost is: {total_shipping_cost}")
+print(f"Total wholesale cost for 60 books is: ${total_wholesale_cost:.2f}")
+
+"""
+
+# --------------------------------QUESTION 11------------------------------------------
+# Write a program to prompt the user for hours and rate per hours to compute gross pay.
+# you need to take into account the result which must be in 2 decimal places.
+# -------------------------------------------------------------------------------------
+
+# Lets us thhe try/except condiditional statement to fix this
+"""
+try:
+    hours_worked = int(input("How many hours did you work: "))
+    rate_per_hour = float(input("Enter your hourly rate: "))
+    gross_pay = hours_worked * rate_per_hour
+    print(f"Your gross payment is: {gross_pay}")
+
+except ValueError:
+    print("Enter a valid integer")
+"""
+
+
+# --------------------------------QUESTION 12------------------------------------------
+# write a program that converts temperature from Celsius to Fahrenhiet. 
+# Using users information.
+# -------------------------------------------------------------------------------------
+
+# Create a function for this conversion
+def convert_to_fahrenheit(celsius):
+    # celsius = input("Enter temperature in celsius: ")
+    convert_celsius = 9/5 * (celsius + 32)
+    print(f"{celsius} degrees Celsius = {convert_celsius} Fahrenheit.")
+
+convert_to_fahrenheit(32)
+convert_to_fahrenheit(35)
+
