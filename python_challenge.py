@@ -1,7 +1,8 @@
 import math
 from math import *
+from datetime import datetime, timedelta
 
-"""
+
 # --------------------------Challenge 1------------------------------------------------
 
 # Create a multiplication table for any number and ensure the next one starts on a new line.
@@ -199,7 +200,7 @@ print(f"Cost per book after discount: {cost_per_book_after_discount:.2f}")
 print(f"Total shipping cost is: {total_shipping_cost}")
 print(f"Total wholesale cost for 60 books is: ${total_wholesale_cost:.2f}")
 
-"""
+
 
 # --------------------------------QUESTION 11------------------------------------------
 # Write a program to prompt the user for hours and rate per hours to compute gross pay.
@@ -207,7 +208,7 @@ print(f"Total wholesale cost for 60 books is: ${total_wholesale_cost:.2f}")
 # -------------------------------------------------------------------------------------
 
 # Lets us thhe try/except condiditional statement to fix this
-"""
+
 try:
     hours_worked = int(input("How many hours did you work: "))
     rate_per_hour = float(input("Enter your hourly rate: "))
@@ -216,11 +217,11 @@ try:
 
 except ValueError:
     print("Enter a valid integer")
-"""
+
 
 
 # --------------------------------QUESTION 12------------------------------------------
-# write a program that converts temperature from Celsius to Fahrenhiet. 
+# write a program that converts temperature from Celsius to Fahrenhiet.
 # Using users information.
 # -------------------------------------------------------------------------------------
 
@@ -233,3 +234,109 @@ def convert_to_fahrenheit(celsius):
 convert_to_fahrenheit(32)
 convert_to_fahrenheit(35)
 
+
+
+# --------------------------------QUESTION 13------------------------------------------
+# How many miles are there in 10 kilometers? Hint: there are 1.61 kilometers in a mile.
+# -------------------------------------------------------------------------------------
+
+# Assign variables
+kilometers = 10
+kilometers_in_mile = 1.61
+miles = kilometers / kilometers_in_mile
+
+print(f"There are {miles} miles in a kilometer")
+
+
+# Alternatively
+# This is my choice of solution because of its flexibility and scalability
+
+
+def miles_in_km(kilometer):
+    km_in_mile = 1.61
+    miles = kilometer / km_in_mile
+    print(f"There are {miles} miles in a kilometer")
+
+
+# Call the function and pass an argument
+miles_in_km(10)
+
+
+
+# --------------------------------QUESTION 14------------------------------------------
+# How many seconds are there in 42 minutes 42 seconds?
+# -------------------------------------------------------------------------------------
+
+
+# Functions are a girl's best friend
+# Create a function and pass the number of minutes as an argument
+def convert_secs_to_mins(minutes):
+
+    seconds_per_minute = 60
+    total_seconds = minutes * seconds_per_minute
+    print(f"The total numner of time is {total_seconds} seceonds")
+
+
+# 42 minutes and 42 seconds is 42.7 in decimals.
+# That is 42/60 = 0.7
+# 42.7 ;-)
+convert_secs_to_mins(42.7)
+
+
+
+# --------------------------------QUESTION 15------------------------------------------
+#  Write a program which calculate trip cost for a user.
+#       * create a greeting for your program.
+#       * Ask the user for number of days.
+#       * Ask user for hotel price.
+#       * Ask the user for rental car price.
+#       * Ask for other expenses
+#       * combine all expenses and print with 2 digits after decimal 2 places.
+# -------------------------------------------------------------------------------------
+
+
+# This is the most straight forward and literally the easiest way I know
+# Define a function
+def trip_budget(*args):
+    print(f"Hello customer! Welcome to your cost calculator.")
+
+    duration = int(input("How many days will you be staying: "))
+    hotel = int(input("How much does the hotel cost per night: "))
+    flight = int(input("How does your flight cost: "))
+    rental_car = int(
+        input("If you need a rental car, please enter the price else enter 0: ")
+    )
+    total_cost = float(hotel * duration) + (flight + rental_car)
+    print(f"Your total cost is: ${total_cost:.2f}")
+
+
+trip_budget()
+
+
+# Alternatively you could create a class and method.
+# The task can be achieved both ways.
+
+
+class TripCalculator:
+    def __init__(self):
+        pass
+
+    # Define a function that can be called at any time to prevent repetitions
+    def trip_estimate(self, *args):
+
+        # Print welcome message
+        print(f"Hello customer! Welcome to your cost calculator.")
+
+        duration = int(input("How many days will you be staying: "))
+        hotel = int(input("How much does the hotel cost per night: "))
+        flight = int(input("How does your flight cost: "))
+        rental_car = int(
+            input("If you need a rental car, please enter the price else enter 0: ")
+        )
+        total_cost = hotel * duration + (flight + rental_car)
+        return f"Your total cost is: ${total_cost:.2f}"
+
+
+trip_cost = TripCalculator()
+message = trip_cost.trip_estimate()
+print(message)
